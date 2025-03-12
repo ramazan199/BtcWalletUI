@@ -1,0 +1,152 @@
+<page:BasePage
+    x:Class="BtcWalletUI.Pages.CoinSelectionPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+    xmlns:btcWalletUi="clr-namespace:BtcWalletUI;assembly=BtcWalletUI"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model1="clr-namespace:BtcWalletUI.ViewModels"
+    xmlns:model2="clr-namespace:BtcWalletLibrary.Models;assembly=BtcWalletLibrary"
+    xmlns:page="clr-namespace:BtcWalletUI.Pages"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:res="clr-namespace:BtcWalletUI.Resources"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="model1:CoinSelectionViewModel"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <Frame
+            Margin="40,80,40,40"
+            BackgroundColor="{DynamicResource LightColor}"
+            CornerRadius="10"
+            HasShadow="False"
+            VerticalOptions="CenterAndExpand">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding Title}" />
+                </StackLayout>
+
+
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="{Binding IsUnspentCoinListEmpty}"
+                        Text="{x:Static res:Dictionary.UtxosNotFound}"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <CollectionView
+                    x:Name="SelectionList"
+                    ItemsSource="{Binding UnspentCoins}"
+                    SelectionMode="Multiple">
+                    <CollectionView.Behaviors>
+                        <behaviorsPack:EventToCommandBehavior
+                            Command="{Binding CoinSelectionChangedCommand}"
+                            CommandParameter="{Binding Source={x:Reference SelectionList}}"
+                            EventName="SelectionChanged" />
+                    </CollectionView.Behaviors>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model2:UnspentCoin">
+                            <Grid Padding="10">
+                                <Frame
+                                    BackgroundColor="{DynamicResource WhiteColor}"
+                                    CornerRadius="20"
+                                    HasShadow="True">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="Medium"
+                                                Text="{x:Static res:Dictionary.Amount}" />
+                                            <Label FontSize="Medium" Text="{Binding Amount}" />
+                                            <Label FontSize="Medium" Text="{x:Static res:Dictionary.BTC}" />
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="Medium"
+                                                Text="{x:Static res:Dictionary.Confirmations}" />
+                                            <Label FontSize="Medium" Text="{Binding Confirmed}" />
+                                        </StackLayout>
+
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="{x:Static res:Dictionary.Address}" />
+                                        <Label FontSize="Small" Text="{Binding Address}" />
+
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Medium"
+                                            Text="{x:Static res:Dictionary.TransactionId}" />
+                                        <Label FontSize="Small" Text="{Binding TransactionId}" />
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <StackLayout Orientation="Horizontal">
+                    <Frame
+                        Margin="0,20,0,20"
+                        Padding="12,3,12,3"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        WidthRequest="50">
+                        <Label
+                            x:Name="BackButton"
+                            Margin="0,0,0,5"
+                            FontSize="14"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static res:Dictionary.Back}"
+                            VerticalOptions="End"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CoinSelectionCancelCommand}" NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+
+                        </Label>
+                    </Frame>
+
+                    <Frame
+                        Margin="0,20,0,20"
+                        Padding="12,3,12,3"
+                        CornerRadius="10"
+                        HasShadow="False"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="End"
+                        WidthRequest="70">
+                        <Label
+                            x:Name="ConfirmButton"
+                            Margin="0,0,0,5"
+                            FontSize="14"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static res:Dictionary.Confirm}"
+                            VerticalOptions="End"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CoinSelectionConfirmCommand}" NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+
+
+                        </Label>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</page:BasePage>

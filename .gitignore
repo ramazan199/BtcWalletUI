@@ -1,0 +1,25 @@
+# Build output directories
+bin/
+obj/
+
+# Visual Studio specific files
+.vs/
+*.suo
+*.user
+*.vcxproj.*
+*.pdb
+*.ipch
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.iws
+
+# Other common files to ignore
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Store

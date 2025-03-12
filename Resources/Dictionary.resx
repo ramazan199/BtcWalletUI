@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="BTC" xml:space="preserve">
+    <value>BTC</value>
+  </data>
+  <data name="BTCWallet" xml:space="preserve">
+    <value>BTC Wallet</value>
+  </data>
+  <data name="CryptoWallet" xml:space="preserve">
+    <value>Crypto Wallet</value>
+  </data>
+  <data name="ERC20PageMethodAddTx" xml:space="preserve">
+    <value>addTransaction</value>
+  </data>
+  <data name="ERC20PageMethodRemoveTx" xml:space="preserve">
+    <value>removeTransaction</value>
+  </data>
+  <data name="ERC20PageMethodUpdateBalance" xml:space="preserve">
+    <value>updateBalance</value>
+  </data>
+  <data name="ERC20PageMethodUpdateTx" xml:space="preserve">
+    <value>updateTransaction</value>
+  </data>
+  <data name="ETH" xml:space="preserve">
+    <value>ETH</value>
+  </data>
+  <data name="NFT" xml:space="preserve">
+    <value>NFT</value>
+  </data>
+  <data name="ReceiveBtcArrow" xml:space="preserve">
+    <value>Receive BTC ↓</value>
+  </data>
+  <data name="SendBtcArrow" xml:space="preserve">
+    <value>Send BTC ↑</value>
+  </data>
+  <data name="SSnftPage" xml:space="preserve">
+    <value>nftPage</value>
+  </data>
+  <data name="SStokensPages" xml:space="preserve">
+    <value>tokensPages</value>
+  </data>
+  <data name="UnspentTransactions" xml:space="preserve">
+    <value>Unspent Transactions</value>
+  </data>
+  <data name="UtxosNotFound" xml:space="preserve">
+    <value>UTXO's not Found</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Confirmations" xml:space="preserve">
+    <value>Confirmations</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="TransactionId" xml:space="preserve">
+    <value>Transaction Id</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="BackArrow" xml:space="preserve">
+    <value>ᐸ</value>
+  </data>
+  <data name="SendBtc" xml:space="preserve">
+    <value>Send BTC</value>
+  </data>
+  <data name="EnterDetailsForTransaction" xml:space="preserve">
+    <value>Enter Details for Transaction</value>
+  </data>
+  <data name="AutomaticallySelectedFee" xml:space="preserve">
+    <value>Automatically Selected Fee</value>
+  </data>
+  <data name="SpecifyAddressAndAmount" xml:space="preserve">
+    <value>Specify Address and Amount</value>
+  </data>
+  <data name="ManualFeeSelectionMode" xml:space="preserve">
+    <value>Manual Fee Selection Mode</value>
+  </data>
+  <data name="ManualCoinSelectionMode" xml:space="preserve">
+    <value>Manual Coin Selection Mode</value>
+  </data>
+  <data name="SelectCoins" xml:space="preserve">
+    <value>Select Coins</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="TransactionIsBeingProcessedMsg" xml:space="preserve">
+    <value>Your transaction is being processed. It can take couple of minutes, please wait.</value>
+  </data>
+  <data name="TransactionBroadcastedMsg" xml:space="preserve">
+    <value>Transaction is successfully broadcasted, your Transaction ID:</value>
+  </data>
+  <data name="ReceiveBtc" xml:space="preserve">
+    <value>Receive BTC</value>
+  </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>Copy To Clipboard</value>
+  </data>
+  <data name="GenerateNewAddress" xml:space="preserve">
+    <value>Get New Address</value>
+  </data>
+  <data name="TransactionsHistory" xml:space="preserve">
+    <value>Transactions History</value>
+  </data>
+  <data name="GettingTransactionsMsg" xml:space="preserve">
+    <value>We are fetching transactions, Balance will be updated after all transactions are fetched, please wait.</value>
+  </data>
+  <data name="TransactionsNotFoundMsg" xml:space="preserve">
+    <value>Transactions not Found. </value>
+  </data>
+  <data name="TransactionDetails" xml:space="preserve">
+    <value>Transaction Details</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="ERC20Wallet" xml:space="preserve">
+    <value>ERC20 Wallet</value>
+  </data>
+  <data name="ETHWallet" xml:space="preserve">
+    <value>ETH Wallet</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Hash" xml:space="preserve">
+    <value>Hash</value>
+  </data>
+  <data name="NftAssets" xml:space="preserve">
+    <value>NFT Assets</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="ReceiveToken" xml:space="preserve">
+    <value>Receive Token ↓</value>
+  </data>
+  <data name="SendERC20" xml:space="preserve">
+    <value>Send ERC20</value>
+  </data>
+  <data name="SendEthers" xml:space="preserve">
+    <value>Send Ethers ↑</value>
+  </data>
+  <data name="SendToken" xml:space="preserve">
+    <value>Send Token ↑</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="ShareYourAddress" xml:space="preserve">
+    <value>Share Your Address</value>
+  </data>
+  <data name="UpdatingWalletMsg" xml:space="preserve">
+    <value>We are updating your wallet, this adress might be already used, please wait</value>
+  </data>
+  <data name="ContractAddress" xml:space="preserve">
+    <value>Contract Address</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Gas" xml:space="preserve">
+    <value>Gas</value>
+  </data>
+  <data name="Units" xml:space="preserve">
+    <value>UNITS</value>
+  </data>
+  <data name="GasPrice" xml:space="preserve">
+    <value>Gas Price</value>
+  </data>
+  <data name="Gwei" xml:space="preserve">
+    <value>Gwei</value>
+  </data>
+  <data name="Fee" xml:space="preserve">
+    <value>Fee</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ConfirmationStatus" xml:space="preserve">
+    <value>Confirmation Status</value>
+  </data>
+  <data name="ChooseSendingAccount" xml:space="preserve">
+    <value>Choose Sending Account</value>
+  </data>
+  <data name="AutomaticallySelectedGasPrice" xml:space="preserve">
+    <value>Automatically Selected Gas Price</value>
+  </data>
+  <data name="ManualGasPriceSelectionMode" xml:space="preserve">
+    <value>Manual Gas Price Selection Mode</value>
+  </data>
+  <data name="AutomaticallySelectedGasLimit" xml:space="preserve">
+    <value>Automatically Selected Gas Limit</value>
+  </data>
+  <data name="AddressAndAmountNeededForCalculation" xml:space="preserve">
+    <value>Address and Amount needed for Calculation</value>
+  </data>
+  <data name="ManualGasLimitSelectionMode" xml:space="preserve">
+    <value>Manual Gas Limit Selection Mode</value>
+  </data>
+  <data name="TotalFee" xml:space="preserve">
+    <value>Total Fee</value>
+  </data>
+  <data name="ReceiveEther" xml:space="preserve">
+    <value>Receive Ether ↓</value>
+  </data>
+  <data name="SendEth" xml:space="preserve">
+    <value>Send ETH</value>
+  </data>
+  <data name="GasLimit" xml:space="preserve">
+    <value>Gas Limit</value>
+  </data>
+  <data name="TokenId" xml:space="preserve">
+    <value>Token ID</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+</root>

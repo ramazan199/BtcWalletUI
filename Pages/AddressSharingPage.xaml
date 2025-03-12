@@ -1,0 +1,85 @@
+<page:BasePage
+    x:Class="BtcWalletUI.Pages.AddressSharingPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+    xmlns:btcWalletUi="clr-namespace:BtcWalletUI;assembly=BtcWalletUI"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:BtcWalletUI.Pages"
+    xmlns:resources="clr-namespace:BtcWalletUI.Resources;assembly=BtcWalletUI"
+    xmlns:viewModels="clr-namespace:BtcWalletUI.ViewModels;assembly=BtcWalletUI"
+    ios:Page.UseSafeArea="true"
+    x:DataType="viewModels:AddressViewModel"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+
+            <!--  Top-bar Menu  -->
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalOptions="CenterAndExpand"
+                    MaxLines="1"
+                    Text="{x:Static resources:Dictionary.ReceiveBtc}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+            </Grid>
+
+            <!--  Address Section  -->
+            <BoxView HeightRequest="20" />
+            <StackLayout Orientation="Vertical" Spacing="10">
+                <!--  User Address  -->
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    Text="{x:Static resources:Dictionary.Address}"
+                    TextColor="Black" />
+
+                <Label
+                    x:Name="Address"
+                    Margin="15,0"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    Text="{Binding Address}"
+                    TextColor="Gray" />
+            </StackLayout>
+
+            <!--  Buttons Section - Horizontal layout  -->
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="70">
+                <Button
+                    Padding="10,5"
+                    Command="{Binding CopyCommand}"
+                    CornerRadius="20"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static resources:Dictionary.CopyToClipboard}" />
+
+                <Button
+                    Padding="10,5"
+                    Command="{Binding GenerateNewAddressCommand}"
+                    CornerRadius="20"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static resources:Dictionary.GenerateNewAddress}" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</page:BasePage>

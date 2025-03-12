@@ -1,0 +1,176 @@
+<page:BasePage
+    x:Class="BtcWalletUI.Pages.TransferPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+    xmlns:btcWalletUi="clr-namespace:BtcWalletUI;assembly=BtcWalletUI"
+    xmlns:converters="clr-namespace:BtcWalletUI.Utils.Converters"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:BtcWalletUI.Pages"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:res="clr-namespace:BtcWalletUI.Resources"
+    xmlns:utils="clr-namespace:BtcWalletUI.Utils"
+    xmlns:viewModels="clr-namespace:BtcWalletUI.ViewModels;assembly=BtcWalletUI"
+    ios:Page.UseSafeArea="true"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="viewModels:TransferViewModel"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ErrorVisibilityConverter x:Key="ErrorVisibilityConverter" />
+            <converters:ErrorTextConverter x:Key="ErrorTextConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout>
+                    <!--  Top-bar Menu  -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            HorizontalOptions="CenterAndExpand"
+                            MaxLines="1"
+                            Text="{x:Static res:Dictionary.SendBtc}"
+                            VerticalOptions="Center" />
+                    </Grid>
+                    <!--    -->
+                    <BoxView HeightRequest="10" />
+                    <!--  Entry  -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="{x:Static res:Dictionary.EnterDetailsForTransaction}" />
+                    <!--    -->
+                    <!--  User Input  -->
+                    <StackLayout Margin="10,0,10,0">
+                        <Label x:Name="AutoFee" Text="{x:Static res:Dictionary.SpecifyAddressAndAmount}" />
+                        <Entry Placeholder="Enter Address" Text="{Binding Address}" />
+                        <Label
+                            IsVisible="{Binding AddressError, Converter={StaticResource ErrorVisibilityConverter}}"
+                            Text="{Binding AddressError}"
+                            TextColor="Red" />
+                        <utils:NumericEntry
+                            Keyboard="Numeric"
+                            Placeholder="Enter Amount"
+                            Text="{Binding Amount}" />
+                        <Label
+                            IsVisible="{Binding AmountError, Converter={StaticResource ErrorVisibilityConverter}}"
+                            Text="{Binding AmountError}"
+                            TextColor="Red" />
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{x:Static res:Dictionary.ManualFeeSelectionMode}" VerticalOptions="Center" />
+                            <Switch IsToggled="{Binding CustomFeeSelectionMode}" VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout>
+                            <utils:NumericEntry
+                                IsEnabled="{Binding CustomFeeSelectionMode}"
+                                Placeholder="Enter Fee"
+                                Text="{Binding CustomFee}" />
+                            <Label
+                                IsVisible="{Binding CustomFeeError, Converter={StaticResource ErrorVisibilityConverter}}"
+                                Text="{Binding CustomFeeError}"
+                                TextColor="Red" />
+                            <!--<Label Text="{Binding Fee, Converter={StaticResource ErrorTextConverter}}" TextColor="Red" />-->
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{x:Static res:Dictionary.ManualCoinSelectionMode}" />
+                        <Switch x:Name="ManualCoinSelectionMode" IsToggled="{Binding ManualCoinSelectionMode, Mode=TwoWay}" />
+                        <Button
+                            x:Name="CoinSelection"
+                            Command="{Binding ManualCoinSelectionCommand}"
+                            CornerRadius="20"
+                            IsEnabled="{Binding ManualCoinSelectionMode}"
+                            Text="{x:Static res:Dictionary.SelectCoins}" />
+                    </StackLayout>
+                    <BoxView HeightRequest="50" />
+                </StackLayout>
+                <!--    -->
+                <!--  Send Button Loading indicator and Error|| Success Messages  -->
+                <StackLayout>
+                    <!--  Activity Indicator for Loading  -->
+                    <Label
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding IsLoading}"
+                        Text="Transaction in progress..."
+                        TextColor="Gray" />
+                    <ActivityIndicator
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding IsLoading}"
+                        IsVisible="{Binding IsLoading}" />
+                    <!--  Broadcast Tx Success Message  -->
+                    <Label
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding BroadcastTxSuccessMessage, Converter={StaticResource ErrorVisibilityConverter}}"
+                        Text="{Binding BroadcastTxSuccessMessage}"
+                        TextColor="Green" />
+                    <!--  Broadcast Tx Error Message  -->
+                    <Label
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding BroadcastTxErrorMessage, Converter={StaticResource ErrorVisibilityConverter}}"
+                        Text="{Binding BroadcastTxErrorMessage}"
+                        TextColor="Red" />
+                    <!--  Build Tx Success Message  -->
+                    <Label
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding BuildTxSuccessMessage, Converter={StaticResource ErrorVisibilityConverter}}"
+                        Text="{Binding BuildTxSuccessMessage}"
+                        TextColor="Green" />
+                    <!--  Build Tx Error Message  -->
+                    <Label
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding BuildTxErrorMessage, Converter={StaticResource ErrorVisibilityConverter}}"
+                        Text="{Binding BuildTxErrorMessage}"
+                        TextColor="Red" />
+                    <Button
+                        x:Name="SendButton"
+                        Command="{Binding SendCommand}"
+                        CornerRadius="20"
+                        HorizontalOptions="Center"
+                        IsEnabled="False"
+                        Text="{x:Static res:Dictionary.Send}"
+                        VerticalOptions="Center" />
+                </StackLayout>
+
+            </StackLayout>
+            <!--<Grid
+                BackgroundColor="#80000000"
+                InputTransparent="False"
+                IsVisible="{Binding IsTxsFetching}">
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Spacing="20"
+                    VerticalOptions="Center">
+                    <ActivityIndicator
+                        HeightRequest="50"
+                        IsRunning="True"
+                        WidthRequest="50"
+                        Color="White" />
+                    <Label
+                        FontSize="Large"
+                        Text="Fetching Unspent Transactions Please Wait..."
+                        TextColor="White" />
+                </StackLayout>
+            </Grid>-->
+        </Grid>
+    </ContentPage.Content>
+</page:BasePage>
